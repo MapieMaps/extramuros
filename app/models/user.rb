@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   belongs_to :team
   has_many :bookings, dependent: :destroy
-  has_many :teams
+  has_many :teams, dependent: :destroy
 
 end
