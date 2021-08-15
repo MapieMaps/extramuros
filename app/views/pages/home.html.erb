@@ -1,2 +1,15 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<!--————————— Test d'affichages à supprimer —————————-->
+<br>
+<p> 🤓 Zone de test d'affichages à supprimer </p>
+<p> ⬇︎ </p>
+<br>
+
+<%= image_tag "users/persona_01.jpg", width: 120, alt: "profile_picture" %>
+
+<% User.all.each do |user| %>
+  <p><%= user.email %></p>
+<% end %>
+

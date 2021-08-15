@@ -22,49 +22,58 @@ User.destroy_all
 
 puts "Création des users..."
 
-### Personas
-abdel = { email: "a.alami@company.com", password: "toto69", first_name: "Abdlekrim", last_name: "Alami", job_title: "Chef de projet", allowed_days_per_weeks: 2 }
-mimi = { email: "ma.bernard@company.com", password: "toto69", first_name: "Marie-Ange", last_name: "Bernard", job_title: "Manager", allowed_days_per_weeks: 2 }
+# Personas
 
+personas = [
+  { email: "a.alami@company.com",
+    password: "toto69", first_name:
+    "Abdlekrim", last_name: "Alami",
+    job_title: "Chef de projet",
+    allowed_days_per_weeks: 2
+  },
+  { email: "ma.bernard@company.com",
+    password: "toto69",
+    first_name: "Marie-Ange",
+    last_name: "Bernard",
+    job_title: "Manager",
+    allowed_days_per_weeks: 2,
+  }
+]
 
-#regrouper dans une variable les users
-[ abdel, mimi ].each do |attributes|
+personas.each do |attributes|
   user = User.create!(attributes)
   puts "#{user.first_name} a été créé"
 end
 
-### Random users :
+# Random Users
 
-url = "https://randomuser.me/api/?nat=fr"
-doc = URI.open(url).read
-json_parsed = JSON.parse(doc)
+def random_users
+  url = "https://randomuser.me/api/?nat=fr"
+  doc = URI.open(url).read
+  json_parsed = JSON.parse(doc)
 
-random_user = json_parsed["results"]
+  random_user = json_parsed["results"]
 
-job_title_example = ["Responsable communication", "Business Developer", "Développeur", "Intégrateur web", "Community Manager", "Designer UX", "Directeur technique", "Business Developer", "Account Manager" ]
+  job_titles = ["Responsable communication", "Business Developer", "Développeur", "Intégrateur web", "Community Manager", "Designer UX", "Directeur technique", "Business Developer", "Account Manager" ]
 
-random_user.each do |attribute|
-  email = attribute["email"]
-  password = "toto69"
-  first_name = attribute["name"]["first"]
-  last_name = attribute["name"]["last"]
-  job_title = job_title_example.sample
-  allowed_days_per_weeks = 2
-  puts email
-  puts first_name, job_title
+  random_user.each do |attribute|
+    attributes = {
+      email: attribute["email"],
+      password: "toto69",
+      first_name: attribute["name"]["first"],
+      last_name: attribute["name"]["last"],
+      job_title: "#{job_titles.sample}",
+      allowed_days_per_weeks: 2,
+    }
+    # image_tag["picture"]["large"]
+    user = User.create!(attributes)
+    puts "#{user.first_name} a été créé"
+  end
 end
 
-# 5.times do
-#   random_user.each do |user|
-#     email = user["email"]
-#     password = "toto69"
-#     # first_name = user["first"]
-#     # last_name = user["last"]
-#     # profile_picture_path = "https://image.tmdb.org/t/p/w500/#{poster_url}"
-#     User.create!(email: email, password: password)
-#     puts "#{user.email} a été créé"
-#   end
-# end
+5.times do
+  random_users
+end
 
 
 puts "Création des teams..."
@@ -79,8 +88,7 @@ random_user.each do |attribute|
   puts attribute["name"]["first"]
 end
 
-
-puts "C'est finit !"
+puts "Et c'est finit !"
 
 # create_table "teams", force: :cascade do |t|
 #   t.string "name"
@@ -90,8 +98,6 @@ puts "C'est finit !"
 #   t.bigint "user_id"
 #   t.index ["user_id"], name: "index_teams_on_user_id"
 # end
-
-
 
 # create_table "users", force: :cascade do |t|
 #   t.string "email", default: "", null: false
@@ -111,5 +117,3 @@ puts "C'est finit !"
 #   t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 #   t.index ["team_id"], name: "index_users_on_team_id"
 # end
-
-
