@@ -8,8 +8,9 @@
 <br>
 
 <%= image_tag "users/persona_01.jpg", width: 120, alt: "profile_picture" %>
+<p><br></p>
 
 <% User.all.each do |user| %>
-  <p><%= user.email %></p>
+  <p><small><strong><%= user.first_name %></strong> <%= user.job_title %></small></p>
 <% end %>
 

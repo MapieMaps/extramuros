@@ -13,16 +13,9 @@ puts "Nettoyage de la base de données......"
 Team.destroy_all
 User.destroy_all
 
-# puts "Creating teams..."
-# team = { name: "Team #1 (test)", description: "Seed team test, équipe de choc" }
-# [ team ].each do |attributes|
-#   team = Team.create!(attributes)
-#   puts "Created #{team.name}"
-# end
-
 puts "Création des users..."
 
-# Personas
+# Personas —————————————————————————————————————————————————————————————————————
 
 personas = [
   { email: "a.alami@company.com",
@@ -45,7 +38,7 @@ personas.each do |attributes|
   puts "#{user.first_name} a été créé"
 end
 
-# Random Users
+# Random Users —————————————————————————————————————————————————————————————————
 
 def random_users
   url = "https://randomuser.me/api/?nat=fr"
@@ -54,7 +47,7 @@ def random_users
 
   random_user = json_parsed["results"]
 
-  job_titles = ["Responsable communication", "Business Developer", "Développeur", "Intégrateur web", "Community Manager", "Designer UX", "Directeur technique", "Business Developer", "Account Manager" ]
+  job_titles = ["Chief happiness manager", "Administrateur réseau", "Traffic manager", "Country opener", "Développeur back-end", "Développeur full-stack", "Administrateur Système", "Responsable communication", "Business Developer", "Développeur", "Intégrateur web", "Community Manager", "Designer UX", "Directeur technique", "Business Developer", "Account Manager" ]
 
   random_user.each do |attribute|
     attributes = {
@@ -90,30 +83,3 @@ end
 
 puts "Et c'est finit !"
 
-# create_table "teams", force: :cascade do |t|
-#   t.string "name"
-#   t.string "description"
-#   t.datetime "created_at", precision: 6, null: false
-#   t.datetime "updated_at", precision: 6, null: false
-#   t.bigint "user_id"
-#   t.index ["user_id"], name: "index_teams_on_user_id"
-# end
-
-# create_table "users", force: :cascade do |t|
-#   t.string "email", default: "", null: false
-#   t.string "encrypted_password", default: "", null: false
-#   t.string "reset_password_token"
-#   t.datetime "reset_password_sent_at"
-#   t.datetime "remember_created_at"
-#   t.datetime "created_at", precision: 6, null: false
-#   t.datetime "updated_at", precision: 6, null: false
-#   t.string "first_name"
-#   t.string "last_name"
-#   t.string "job_title"
-#   t.integer "allowed_days_per_weeks"
-#   t.integer "phone_number"
-#   t.bigint "team_id"
-#   t.index ["email"], name: "index_users_on_email", unique: true
-#   t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-#   t.index ["team_id"], name: "index_users_on_team_id"
-# end
