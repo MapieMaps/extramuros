@@ -7,5 +7,5 @@ class User < ApplicationRecord
   belongs_to :team, optional: true
   has_many :bookings, dependent: :destroy
   has_many :teams, dependent: :destroy
-
+  has_one_attached :avatar
 end
