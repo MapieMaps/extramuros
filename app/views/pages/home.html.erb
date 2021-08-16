@@ -1,13 +1,15 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<!--————————— Test d'affichages à supprimer —————————-->
+<!--————————— À supprimer : —————————-->
 <br>
-<p> 🤓 Zone de test d'affichages à supprimer </p>
+<p> 🤓 Zone de test à supprimer 🤓 </p>
 <p> ⬇︎ </p>
 <br>
 
 <% User.all.each do |user| %>
-  <p><small><strong><%= user.first_name %></strong> <%= user.job_title %></small></p>
-  <%= image_tag current_user.avatar, width: 80 %>
+  <p><span><small><strong><%= user.first_name %></strong> <%= user.job_title %></small></span></p>
+  <!-- pour affichage avatar : mettre un if avatar.attached? -->
+  <!-- image_tag user.avatar -->
+  <%= image_tag user.avatar, width: 48 %>
 <% end %>
