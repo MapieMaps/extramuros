@@ -1,6 +1,3 @@
-require 'open-uri'
-require 'json'
-
 marie_ange = User.create!(
   email: "ma.bernard@company.com",
   password: "toto69",
