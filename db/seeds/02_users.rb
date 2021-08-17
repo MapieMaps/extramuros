@@ -31,5 +31,3 @@ end
 20.times do
   random_users
 end
-
-puts "———————————————————"

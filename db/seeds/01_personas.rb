@@ -19,6 +19,3 @@ abdlekrim = User.create!(
 )
 abdlekrim.avatar.attach(io: File.open(Rails.root.join('app/assets/images/users/persona_02.jpg')), filename: 'persona_02.jpg')
 puts "#{abdlekrim.first_name} a été créé"
-
-
-puts "———————————————————"

@@ -1,6 +1,8 @@
 <h1>Coworkings#index</h1>
 <p>Find me in app/views/coworkings/index.html.erb</p>
 
+<!-- Code test, il faudra utiliser les variables d'instance : -->
+
 <% Coworking.all.each do |coworking| %>
   <p><small><%= coworking.name %></small></p>
   <% coworking.photos.each do |photo|%>
