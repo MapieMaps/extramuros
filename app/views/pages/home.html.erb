@@ -8,8 +8,10 @@
 <br>
 
 <% User.all.each do |user| %>
-  <p><span><small><strong><%= user.first_name %></strong> <%= user.last_name %> <%= user.job_title %></small></span></p>
+  <p><span><small><strong><%= user.first_name %></strong> <%= user.last_name %> | <%= user.job_title %> | <%= user.phone_number %></small></span></p>
+
   <!-- pour affichage avatar : mettre un if avatar.attached? -->
   <!-- image_tag user.avatar -->
   <%= image_tag user.avatar, width: 48 %>
 <% end %>
+

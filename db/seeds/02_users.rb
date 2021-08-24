@@ -9,6 +9,7 @@ def random_users
   random_user = json_parsed["results"]
 
   job_titles = ["Chief happiness manager", "Administrateur réseau", "Traffic manager", "Country opener", "Développeur back-end", "Développeur full-stack", "Administrateur Système", "Responsable communication", "Business Developer", "Développeur", "Intégrateur web", "Community Manager", "Designer UX", "Directeur technique", "Business Developer", "Account Manager" ]
+  num = 8.times.map{rand(10)}.join
 
   random_user.each do |attribute|
     attributes = {
@@ -18,6 +19,7 @@ def random_users
       last_name: attribute["name"]["last"],
       job_title: "#{job_titles.sample}",
       allowed_days_per_weeks: 2,
+      phone_number: "06#{num} "
     }
     random_avatar = open(attribute["picture"]["large"])
 
