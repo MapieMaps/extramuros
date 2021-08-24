@@ -18,8 +18,13 @@ mix_tassin_photos.each do |photo|
   file = URI.open(photo)
   mix_tassin.photos.attach(io: file, filename: "mix-tassin-0#{mix_tassin_photo_number += 1}.jpg")
 end
+
+mix_tassin_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1629819999/Extramuros/Coworkings/mix-tassin-avatar_lymsu2.jpg')
+mix_tassin.avatar.attach(io: mix_tassin_avatar, filename: 'mix-tassin-avatar.jpg')
+
 puts "#{mix_tassin.name} a été créé"
 
+# ——————————————————————————————————————————————————————————————————————————————
 
 booster_house = Coworking.create!(
   name: "Booster House",
@@ -39,5 +44,9 @@ booster_house_photos.each do |photo|
   file = URI.open(photo)
   booster_house.photos.attach(io: file, filename: "mix-tassin-0#{booster_house_photo_number += 1}.jpg")
 end
+
+booster_house_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1629819998/Extramuros/Coworkings/booster-house-avatar_xphwe2.jpg')
+booster_house.avatar.attach(io: booster_house_avatar, filename: 'booster-house-avatar.jpg')
+
 puts "#{booster_house.name} a été créé"
 
