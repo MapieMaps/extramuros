@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   def index
   end
 
-  def show
+  def profile
+    @user = current_user
   end
 
   private
