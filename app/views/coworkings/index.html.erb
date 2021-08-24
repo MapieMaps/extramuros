@@ -15,6 +15,7 @@
     <h3>NO J'ai pas d'avatar attached </h3>
   <% end %>
   <p><small><%= coworking.name %></small></p>
+  <%= coworking.contact_first_name %>
   <% coworking.photos.each do |photo|%>
     <%= image_tag(photo) %>
   <% end %>
