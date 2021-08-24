@@ -1,2 +1,24 @@
 <h1>Coworkings#index</h1>
 <p>Find me in app/views/coworkings/index.html.erb</p>
+
+<!-- Code test, il faudra utiliser les variables d'instance : -->
+<br>
+<p> 🤓 Zone de test à supprimer 🤓 </p>
+<p> ⬇︎ </p>
+<br>
+
+<% Coworking.all.each do |coworking| %>
+  <% if coworking.avatar.attached? %>
+    <h3>YES J'ai un avatar attached </h3>
+    <%= image_tag coworking.avatar %>
+  <% else %>
+    <h3>NO J'ai pas d'avatar attached </h3>
+  <% end %>
+  <p><small><%= coworking.name %></small></p>
+  <%= coworking.contact_first_name %>
+  <% coworking.photos.each do |photo|%>
+    <%= image_tag(photo) %>
+  <% end %>
+<% end %>
+
+

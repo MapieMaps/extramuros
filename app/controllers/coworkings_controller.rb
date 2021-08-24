@@ -4,4 +4,8 @@ class CoworkingsController < ApplicationController
 
   def show
   end
+
+  def article_params
+    params.require(:coworking).permit(photos: [])
+  end
 end
