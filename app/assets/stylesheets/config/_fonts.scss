@@ -1,16 +1,37 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+
+// Extramuros Utilise une Adobe font(font-family: proxima-nova, sans-serif;) :
+@import url('https://use.typekit.net/plw2rvf.css');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$headers-font: "basier_circlebold", "Helvetica", "sans-serif";
+$body-font: "basier_circleregular", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+// local font file (basier_circle)
+
+@font-face {
+  font-family: "basier_circleregular";
+  src: font-url('basiercircle-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: "basier_circleregular_italic";
+  src: font-url('basiercircle-regularitalic-webfont.woff') format('woff');
+  font-style: italic, oblique;
+}
+
+@font-face {
+  font-family: "basier_circlebold";
+  src: font-url('basiercircle-bold-webfont.woff') format('woff');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "basier_circlebold_italic";
+  src: font-url('basiercircle-bolditalic-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: italic, oblique;
+}
+
