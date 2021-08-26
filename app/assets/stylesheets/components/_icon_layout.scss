@@ -1,0 +1,35 @@
+.icon-text-left {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+
+  .material-icons {
+    color: $blue;
+    margin-right: 8px;
+  }
+}
+
+.icon-text-left-big {
+  display: flex;
+  align-items: center;
+  margin-top: 48px;
+
+  .material-icons {
+
+    color: $blue;
+    margin-right: 24px;
+    font-size: 48px;
+  }
+}
+
+
+.icon-text-right {
+  color: $blue;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+
+  .material-icons {
+    margin-left: 8px;
+  }
+}

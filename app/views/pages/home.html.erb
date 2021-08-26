@@ -1,15 +1,5 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<!--————————— À supprimer : —————————-->
-<br>
-<p> 🤓 Zone de test à supprimer 🤓 </p>
-<p> ⬇︎ </p>
-<br>
 
-<% User.all.each do |user| %>
-  <p><span><small><strong><%= user.first_name %></strong> <%= user.last_name %> <%= user.job_title %></small></span></p>
-  <!-- pour affichage avatar : mettre un if avatar.attached? -->
-  <!-- image_tag user.avatar -->
-  <%= image_tag user.avatar, width: 48 %>
-<% end %>
+

@@ -4,7 +4,8 @@ marie_ange = User.create!(
   first_name: "Marie-Ange",
   last_name: "Bernard",
   job_title: "Manager",
-  allowed_days_per_weeks: 2
+  allowed_days_per_weeks: 2,
+  phone_number: "0648996574"
 )
 marie_ange.avatar.attach(io: File.open(Rails.root.join('app/assets/images/users/persona_01.jpg')), filename: 'persona_01.jpg')
 puts "#{marie_ange.first_name} a été créé"
@@ -16,6 +17,7 @@ abdlekrim = User.create!(
   last_name: "Alami",
   job_title: "Chef de projet",
   allowed_days_per_weeks: 2,
+  phone_number: "0653849338"
 )
 abdlekrim.avatar.attach(io: File.open(Rails.root.join('app/assets/images/users/persona_02.jpg')), filename: 'persona_02.jpg')
 puts "#{abdlekrim.first_name} a été créé"
