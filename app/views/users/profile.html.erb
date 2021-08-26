@@ -12,31 +12,46 @@
           <div class="icon-text-left">
             <span class="material-icons">&#xe0cd;</span><%= @user.phone_number %>
           </div>
+          <div style="margin-top: 32px ; padding-top: 32px; border-top:1px solid #E5E5E5;"></div>
+          <!-- n'apparait que si current_user -->
+          <% if current_user %>
+            <div class="icon-text-right">
+              éditer mon profil<span class="material-icons">&#xe3c9;</span>
+            </div>
+          <% end %>
         </div>
       </div>
 
     </div>
     <div class="col-lx-8 column-stats">
       <h1>Toutes mes stats</h1>
+
+      <% if current_user %>
+        (à supprimer) current user: <span><%= @user.first_name %> <%= @user.last_name %> <%= @user.id %></span><br>
+        Retrouvez ici tous vos chiffres clés !
+      <% else %>
+        Retrouvez ici tous les chiffres clés pour <span><%= @user.first_name %> <%= @user.last_name %></span>!
+      <% end %>
+
       <div class="icon-text-left-big">
-        <span class="material-icons">&#xe0be;</span>
+        <span class="material-icons">&#xe614;</span>
         Vous avez la possibilité de télétravailler en coworking&nbsp;
-        <h3><%= @user.allowed_days_per_weeks %> jours </h3 style="background-color: blue;">&nbsp;par semaine.
+        <h3 style="color: #4086CE;"><%= @user.allowed_days_per_weeks %> jours </h3 style="background-color: blue;">&nbsp;par semaine.
       </div>
       <div class="icon-text-left-big">
         <span class="material-icons">&#xe889;</span>
         Vous avez passé&nbsp;
-        <h3><%= @user.allowed_days_per_weeks %> jours </h3 style="background-color: blue;">&nbsp;en coworking depuis le 1er janvier 2022.
+        <h3 style="color: #4086CE;"><%= @user.allowed_days_per_weeks %> jours </h3 style="background-color: blue;">&nbsp;en coworking depuis le 1er janvier 2022.
       </div>
       <div class="icon-text-left-big">
         <span class="material-icons">&#xea1c;</span>
         Vous avez réduit de&nbsp;
-        <h3><%= @user.allowed_days_per_weeks %> % </h3 style="background-color: blue;">&nbsp;vos émissions de CO2 depuis le 1er janvier 2022.
+        <h3 style="color: #4086CE;"><%= @user.allowed_days_per_weeks %>% </h3 style="background-color: blue;">&nbsp;vos émissions de CO2 depuis le 1er janvier 2022.
       </div>
       <div class="icon-text-left-big">
         <span class="material-icons">&#xf20c;</span>
         Vous passez&nbsp;
-        <h3><%= @user.allowed_days_per_weeks %> % </h3 style="background-color: blue;">&nbsp;de votre temps de travail dans les locaux de l’entreprise depuis le 1er janvier 2022.
+        <h3 style="color: #4086CE;"><%= @user.allowed_days_per_weeks %>% </h3 style="background-color: blue;">&nbsp;de votre temps de travail dans les locaux de l’entreprise depuis le 1er janvier 2022.
       </div>
     </div>
   </div>

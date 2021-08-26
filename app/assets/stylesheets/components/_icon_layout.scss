@@ -10,13 +10,26 @@
 }
 
 .icon-text-left-big {
-  color: $blue;
   display: flex;
   align-items: center;
   margin-top: 48px;
 
   .material-icons {
-    margin-right: 8px;
+
+    color: $blue;
+    margin-right: 24px;
     font-size: 48px;
+  }
+}
+
+
+.icon-text-right {
+  color: $blue;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+
+  .material-icons {
+    margin-left: 8px;
   }
 }
