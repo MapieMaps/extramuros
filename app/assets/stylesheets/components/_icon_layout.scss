@@ -1,0 +1,22 @@
+.icon-text-left {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+
+  .material-icons {
+    color: $blue;
+    margin-right: 8px;
+  }
+}
+
+.icon-text-left-big {
+  color: $blue;
+  display: flex;
+  align-items: center;
+  margin-top: 48px;
+
+  .material-icons {
+    margin-right: 8px;
+    font-size: 48px;
+  }
+}
