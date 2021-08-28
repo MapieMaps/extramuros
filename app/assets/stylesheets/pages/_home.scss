@@ -1,1 +1,19 @@
 // Specific CSS for your home-page
+.banner {
+  background-image: asset-url('home.jpg');
+  background-size: cover;
+  height:100vh;
+  padding: 140px 0;
+  color: white;
+  h1 {
+    font-size: 68px;
+  }
+  box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.4);
+}
+
+.container {
+  // width: 840px;
+  margin: auto;
+}
+
+
