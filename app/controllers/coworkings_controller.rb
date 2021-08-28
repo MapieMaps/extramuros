@@ -5,6 +5,7 @@ class CoworkingsController < ApplicationController
   end
 
   def show
+
   end
 
   private
@@ -14,6 +15,6 @@ class CoworkingsController < ApplicationController
   end
 
   def find_coworking
-    @Coworking = Coworking.find(params[:id])
+    @coworking = Coworking.find(params[:id])
   end
 end

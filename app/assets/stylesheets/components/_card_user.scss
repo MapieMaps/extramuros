@@ -4,5 +4,7 @@
 }
 
 .card-user-profile-content {
+  display: flex;
+  flex-direction: column;
   padding-left: 24px;
 }
