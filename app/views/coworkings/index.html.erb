@@ -38,21 +38,3 @@
 </div>
 
 
-
-
-
-<% @coworkings.each do |coworking| %>
-  <% if coworking.avatar.attached? %>
-    <%= image_tag coworking.avatar %>
-  <% end %>
-  <p><small><%= coworking.name %></small></p>
-  <%= coworking.contact_first_name %>
-  <%= cl_image_tag(coworking.photos.first.key)%>
-
-<% end %>
-
-
- <!-- style="margin-top: 64px ; -->
-
-
-
