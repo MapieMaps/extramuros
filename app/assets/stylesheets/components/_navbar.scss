@@ -7,6 +7,27 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-lewagon .navbar-brand {
+  font-size: 38px;
+  font-family: basier_circlebold;
 }
+
+.navbar {
+  height: 130px;
+  padding: 0 64px 0 64px;
+  .nav-link {
+    font-family: basier_circleregular;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-right: 32px;
+  }
+}
+
+// .navbar a {
+//   text-decoration: none;
+//   color: black;
+// }
+
+
+
