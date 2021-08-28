@@ -1,18 +1,10 @@
 <div class="banner" >
   <div class="container">
     <h1>Trouvez un coworking<br>près de chez vous !</h1>
-    <p>Choississez une date, sélectionnez un bureau et réservez, tout simplement !</p>
-      <div class="row">
-        <div class="col-lg-3">
-          <form action="#" class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <small><label for="input_from">Select Date</label></small>
-                <input type="text" class="form-control" id="input">
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+    <p>Sélectionnez un bureau et réservez, tout simplement !</p>
+    <div type="button" class="btn btn-primary" style="margin-top: 32px ;">
+      <%= link_to 'Réservez votre place', coworkings_path, :class => "btn"%>
+    </div>
   </div>
 </div>
+
