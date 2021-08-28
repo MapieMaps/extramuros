@@ -1,24 +1,67 @@
-<h1>Coworkings#index</h1>
-<p>Find me in app/views/coworkings/index.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
 
-<!-- Code test, il faudra utiliser les variables d'instance : -->
-<br>
-<p> 🤓 Zone de test à supprimer 🤓 </p>
-<p> ⬇︎ </p>
-<br>
+    <div class="col-12 col-lg-6">
 
-<% Coworking.all.each do |coworking| %>
+      <div class="row coworkings-list">
+
+        <div class="row coworking-fields">
+          <div class="col-6 col-lg-6">
+            <form action="#" class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="input">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-6 col-lg-6">
+            <form action="#" class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="input">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <% @coworkings.each do |coworking| %>
+          <div class="coworking-card">
+            <%= cl_image_tag(coworking.photos.first.key)%>
+            <div>
+              <h2><%= coworking.name %></h2>
+              <p><%= coworking.address %></p>
+              <small><%= coworking.equipements %></small>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-6" style="background-color: lightseagreen;">
+      map
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<% @coworkings.each do |coworking| %>
   <% if coworking.avatar.attached? %>
-    <h3>YES J'ai un avatar attached </h3>
     <%= image_tag coworking.avatar %>
-  <% else %>
-    <h3>NO J'ai pas d'avatar attached </h3>
   <% end %>
   <p><small><%= coworking.name %></small></p>
   <%= coworking.contact_first_name %>
-  <% coworking.photos.each do |photo|%>
-    <%= image_tag(photo) %>
-  <% end %>
+  <%= cl_image_tag(coworking.photos.first.key)%>
+
 <% end %>
+
+
+ <!-- style="margin-top: 64px ; -->
+
 
 

@@ -1,0 +1,24 @@
+.coworking-card {
+  display: flex;
+  margin-bottom:64px;
+  align-items: flex-start;
+
+  small {
+    color: $blue;
+  }
+
+  img {
+    width: 240px;
+    height: 162px;
+    margin-right: 32px;
+  }
+}
+
+.coworkings-list {
+  padding: 0 64px 0 64px;
+}
+
+.coworking-fields {
+  margin-bottom: 48px;
+}
+

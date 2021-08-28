@@ -1,5 +1,6 @@
 class CoworkingsController < ApplicationController
   def index
+    @coworkings = Coworking.all
   end
 
   def show
