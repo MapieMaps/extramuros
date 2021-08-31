@@ -11,8 +11,29 @@
 <div type="button" class="btn btn-primary" style="margin-top: 32px ;">
   <%= link_to 'Réservez ma place', coworkings_path, :class => "btn"%>
 </div>
-
-<div><%= @coworking.equipements.split(',').join(' ') %></div>
+<div class="chip">
+  <% @coworking.equipements.split(',').each do |equipement|%>
+    <div class="chip-equipement">
+      <%= equipement %>
+    </div>
+  <% end %>
+</div>
+<div class="container">
+  <div class="cards">
+    <div class="card"> Carte 1</div>
+    <div class="card"> Carte 2</div>
+    <div class="card"> Carte 3</div>
+    <div class="card"> Carte 4</div>
+    <div class="card"> Carte 5</div>
+    <div class="card"> Carte 6</div>
+    <div class="card"> Carte 7</div>
+    <div class="card"> Carte 8</div>
+    <div class="card"> Carte 9</div>
+    <div class="card"> Carte 10</div>
+    <div class="card"> Carte 11</div>
+    <div class="card"> Carte 12</div>
+  </div>
+</div>
 
 
 <!-- ajouter une class à l'objet > , :class => 'btn' -->
