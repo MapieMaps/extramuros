@@ -1,5 +1,7 @@
 class CoworkingsController < ApplicationController
+  before_action :find_coworking, only: [:show]
   def index
+    @coworkings = Coworking.all
   end
 
   def show
@@ -9,5 +11,9 @@ class CoworkingsController < ApplicationController
 
   def coworking_params
     params.require(:coworking).permit(:name, :description, photos: [])
+  end
+
+  def find_coworking
+    @coworking = Coworking.find(params[:id])
   end
 end

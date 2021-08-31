@@ -1,15 +1,15 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-lx-4 column-profile">
+  <div class="row" style="margin-top: 64px ;">
+    <div class="col 12 col-sm-4 column-profile">
       <div class="card-user-profile">
         <%= image_tag @user.avatar, class: "avatar-large" %>
         <div class="card-user-profile-content">
           <h2><%= @user.first_name %> <%= @user.last_name %></h2>
           <%= @user.job_title %>
-          <div class="icon-text-left">
+          <div class="icon-text-left-mixt">
             <span class="material-icons">&#xe0be;</span><%= @user.email %>
           </div>
-          <div class="icon-text-left">
+          <div class="icon-text-left-mixt">
             <span class="material-icons">&#xe0cd;</span><%= @user.phone_number %>
           </div>
 
@@ -24,7 +24,7 @@
       </div>
 
     </div>
-    <div class="col-lx-8 column-stats">
+    <div class="col 12 col-sm-8 column-stats">
       <h1>Toutes mes stats</h1>
 
       <% if current_user %>
