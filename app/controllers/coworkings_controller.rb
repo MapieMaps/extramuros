@@ -3,9 +3,11 @@ class CoworkingsController < ApplicationController
   end
 
   def show
+    @coworking = Coworking.find(params[:id])
+    @booking = Booking.new
   end
 
-  def article_params
-    params.require(:coworking).permit(photos: [])
+  def coworking_params
+    params.require(:coworking).permit(:name, :description, photos: [])
   end
 end
