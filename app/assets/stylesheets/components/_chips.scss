@@ -1,24 +1,26 @@
-.chip {
+.chips {
   display: grid;
-  grid-auto-flow: row;
-  grid-gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-gap: 16px;
+  grid-auto-flow: dense;
+  list-style: none;
+  margin: 1em auto;
+  padding: 0;
+  // max-width: 800px;
 }
-
-.chip-equipement {
-  background-color: $blue;
+.chips li {
+  border: 1px solid #ccc;
+  // border-radius: 50px;
+  // padding: 8px 16px 8px 16px;
 }
-
-
-.card {
-  background-color: $blue;
-  padding: 12px;
-  max-width: 120px;
-}
-
-.cards {
+.chips li.landscape {
   grid-column-end: span 2;
-  grid-row-end: span 2;
-  background-color: #ffa94d;
+}
+.chips li img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 // https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Grid_Layout/Auto-placement_in_CSS_Grid_Layout#les_cas_dutilisation_pour_le_placement_automatique

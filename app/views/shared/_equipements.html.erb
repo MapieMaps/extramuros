@@ -1,0 +1,10 @@
+<ul class="chips">
+  <% @coworking.equipements.split(',').each do |equipement|%>
+    <li>
+      <span class="material-icons">&#xe5cb;</span>
+      <%= equipement %>
+
+    </li>
+  <% end %>
+
+</ul>

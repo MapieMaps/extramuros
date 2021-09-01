@@ -8,6 +8,10 @@ class CoworkingsController < ApplicationController
 
   end
 
+  def new
+    @coworking = Coworking.new
+  end
+
   private
 
   def article_params
