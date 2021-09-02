@@ -5,7 +5,8 @@
   fauteuil: "Fauteuils ergomiques",
   firewall: "Firewall",
   imprimante: "Imprimante",
-  internet: "Internet Haut Débit"
+  internet: "Internet Haut Débit",
+  parking: "Parking Gratuit"
 } %>
 
 
@@ -34,31 +35,29 @@
       <h5>Horaires d'ouverture:</h5>
       <br>
       <!-- f.collection_select -->
-      <div class="d-flex justify-content-around align-items-center">
-        <p>de </p>
-        <%= f.input :heures, collection: 0...24, prompt: "Selectionnez une heure", selected: 9 %>&nbsp;
-        <%= f.input :minutes, collection: ['00', '30'], prompt: "Selectionner une plage", selected: ['00'] %>
-        <p>à</p>
-        <%= f.input :heures, collection: 0...24, prompt: "Selectionnez une heure", selected: 18 %>&nbsp;
-        <%= f.input :minutes, collection: ['00', '30'], prompt: "Selectionner une plage", selected: ['30'] %>
+      <div class="d-flex justify-content-start ">
+
+
+        <%= f.input :opening_time, as: :time, default: Time.parse('8:00') %>
+        <%= f.input :closing_time, as: :time, default: Time.parse('20:00') %>
+
       </div>
       <br>
 
       <h5>Gestionnaire :</h5>
       <br>
       <div class="d-flex align-items-center">
-        <%= f.input :contact_first_name, label: 'Prénom du gérant'%>&nbsp;
-        <%= f.input :contact_last_name, label: 'Nom du gérant'%>
+        <%= f.input :contact_name, label: 'Nom du géarant'%>
       </div>
 
       <%= f.label "Photo du gérant" %>
       <%= f.file_field :avatar %>
       <br>
 
-      <div>
-        <h5>Photos du lieu :</h5>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      </div>
+
+      <h5>Photos du lieu :</h5>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+
       <br>
 
         <%= f.submit %>
