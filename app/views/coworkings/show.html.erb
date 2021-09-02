@@ -9,7 +9,11 @@
 <h2 style="color: #4086CE;"><%= Time.now.strftime("%m/%d/%Y") %></h2>
 
 <div type="button" class="btn btn-primary" style="margin-top: 32px ;">
-  <%= link_to 'Réservez ma place', coworkings_path, :class => "btn"%>
+    <%= simple_form_for([@coworking, @booking]) do |f| %>
+    <%= f.input :date, as: :hidden, input_html: { value: @date } %>
+    <%= f.submit "réserver", class: "btn" %>
+    <% end %>
+        
 </div>
 
 <div><%= @coworking.equipements.split(',').join(' ') %></div>
