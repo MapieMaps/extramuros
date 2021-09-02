@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_17_150955) do
+ActiveRecord::Schema.define(version: 2021_09_02_183255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,13 +48,27 @@ ActiveRecord::Schema.define(version: 2021_08_17_150955) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "coworking_equipements", force: :cascade do |t|
+    t.bigint "equipement_id", null: false
+    t.bigint "coworking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coworking_id"], name: "index_coworking_equipements_on_coworking_id"
+    t.index ["equipement_id"], name: "index_coworking_equipements_on_equipement_id"
+  end
+
   create_table "coworkings", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "equipements"
-    t.string "contact_first_name"
-    t.string "contact_last_name"
-    t.string "contact_email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.time "opening_time"
+    t.time "closing_time"
+    t.string "contact_name"
+  end
+
+  create_table "equipements", force: :cascade do |t|
+    t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -90,6 +104,8 @@ ActiveRecord::Schema.define(version: 2021_08_17_150955) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "coworkings"
   add_foreign_key "bookings", "users"
+  add_foreign_key "coworking_equipements", "coworkings"
+  add_foreign_key "coworking_equipements", "equipements"
   add_foreign_key "teams", "users"
   add_foreign_key "users", "teams"
 end
