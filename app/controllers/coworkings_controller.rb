@@ -26,7 +26,7 @@ class CoworkingsController < ApplicationController
   private
 
   def coworking_params
-    params.require(:coworking).permit(:name, :address, :equipements, :contact_first_name, :contact_last_name, :contact_email, :avatar, :photos)
+    params.require(:coworking).permit(:name, :address, :equipements, :opening_time, :closing_time, :contact_name, :avatar, photos: [])
 
   end
 
