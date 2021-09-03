@@ -1,14 +1,5 @@
-<% equipements_hash = {
-  acces: "Accès PMR",
-  secu: "Doc. unique de secu",
-  repas: "Espace repas",
-  fauteuil: "Fauteuils ergomiques",
-  firewall: "Firewall",
-  imprimante: "Imprimante",
-  internet: "Internet Haut Débit",
-  parking: "Parking Gratuit"
-} %>
 
+<!-- ["Accès PMR", "Doc. unique de secu", "Espace repas", "Fauteuils ergonomiques", "Firewall", "Imprimante", "Internet Haut Débit", "Parking Gratuit"] -->
 
 <div class="container">
 
@@ -22,43 +13,36 @@
       <br>
 
       <h5>Equipements :</h5>
-      <br>
-      <div>
-        <% equipements_hash.each do |key, value| %>
-          <%= check_box_tag(key.to_sym) %>
-          <%= label_tag(key.to_sym, value) %><br>
-          <!-- voir collection_check_boxes -->
-        <% end %>
+
+      <div class="row">
+        <%= f.collection_check_boxes :equipement_ids, Equipement.all, :id, :name %>
       </div>
       <br>
 
       <h5>Horaires d'ouverture:</h5>
-      <br>
-      <!-- f.collection_select -->
+
       <div class="d-flex justify-content-start ">
-
-
-        <%= f.input :opening_time, as: :time, default: Time.parse('8:00') %>
-        <%= f.input :closing_time, as: :time, default: Time.parse('20:00') %>
-
+        <%= f.input :opening_time, as: :time, default: Time.parse('9:00') %>
+        <%= f.input :closing_time, as: :time, default: Time.parse('19:00') %>
       </div>
       <br>
 
       <h5>Gestionnaire :</h5>
-      <br>
-      <div class="d-flex align-items-center">
-        <%= f.input :contact_name, label: 'Nom du géarant'%>
+
+      <div class="row">
+        <%= f.input :contact_name, label: 'Nom du gérant'%>
+
+        <%= f.label "Photo du gérant" %>
+        <%= f.file_field :avatar %>
       </div>
-
-      <%= f.label "Photo du gérant" %>
-      <%= f.file_field :avatar %>
       <br>
-
 
       <h5>Photos du lieu :</h5>
-      <%= f.label :photos, "Upload New Photos (direct upload):" %>
-      <%= f.file_field :photos, multiple: true, direct_upload: true %>
 
+      <div class="row">
+        <%= f.label :photos, "Ajouter des photos" %>
+        <%= f.file_field :photos, multiple: true, direct_upload: true %>
+      </div>
       <br>
 
         <%= f.submit %>
