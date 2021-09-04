@@ -1,0 +1,3 @@
+class Equipement < ApplicationRecord
+
+end

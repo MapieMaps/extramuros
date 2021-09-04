@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [ :index, :profile, :show ] do
     resources :teams, only: [ :new, :create, :index ]
   end
-  resources :coworkings, only: [ :index, :show ] do
+  resources :coworkings, only: [ :index, :show, :new, :create ] do
     resources :bookings, only: [ :index, :new, :create ]
   end
   resources :bookings, only: [ :destroy ]

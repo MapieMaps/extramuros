@@ -1,0 +1,64 @@
+
+<!-- ["Accès PMR", "Doc. unique de secu", "Espace repas", "Fauteuils ergonomiques", "Firewall", "Imprimante", "Internet Haut Débit", "Parking Gratuit"] -->
+
+<div class="container">
+
+  <div class="col-12 col-lg-6">
+
+    <%= simple_form_for(@coworking) do |f| %>
+      <%= f.error_notification %>
+
+      <%= f.input :name%>
+      <%= f.input :address%>
+      <br>
+
+      <h5>Equipements :</h5>
+
+      <div class="row">
+        <%= f.collection_check_boxes :equipement_ids, Equipement.all, :id, :name %>
+      </div>
+      <br>
+
+      <h5>Horaires d'ouverture:</h5>
+
+      <div class="d-flex justify-content-start ">
+        <%= f.input :opening_time, as: :time, default: Time.parse('9:00') %>
+        <%= f.input :closing_time, as: :time, default: Time.parse('19:00') %>
+      </div>
+      <br>
+
+      <h5>Gestionnaire :</h5>
+
+      <div class="row">
+        <%= f.input :contact_name, label: 'Nom du gérant'%>
+
+        <%= f.label "Photo du gérant" %>
+        <%= f.file_field :avatar %>
+      </div>
+      <br>
+
+      <h5>Photos du lieu :</h5>
+
+      <div class="row">
+        <%= f.label :photos, "Ajouter des photos" %>
+        <%= f.file_field :photos, multiple: true, direct_upload: true %>
+      </div>
+      <br>
+
+        <%= f.submit %>
+
+    <% end %>
+  </div>
+</div>
+
+
+<div style="height: 200px"></div>
+
+<!-- t.string "name"
+t.string "address"
+t.datetime "created_at", precision: 6, null: false
+t.datetime "updated_at", precision: 6, null: false
+t.time "opening_time"
+t.time "closing_time"
+t.string "contact_name" -->
+
