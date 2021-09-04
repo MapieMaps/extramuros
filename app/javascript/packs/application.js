@@ -2,6 +2,7 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
+//= require sweetalert2
 
 require("@rails/ujs").start()
 require("turbolinks").start()
@@ -26,15 +27,21 @@ require("channels")
 
 // External imports
 import "bootstrap";
-
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 // Internal imports, e.g:
 import { activate_datepicker } from '../plugins/flatpickr';
 
 document.addEventListener('turbolinks:load', () => {
   activate_datepicker
+  Swal.fire({
+    title: 'Error!',
+    text: 'Do you want to continue',
+    icon: 'error',
+    confirmButtonText: 'Cool'
+  })
 });
 
-// stylesheets
-// require("../stylesheets/application.scss")
+
 
