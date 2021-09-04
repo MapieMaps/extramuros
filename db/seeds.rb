@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+
 puts "Nettoyage de la base de données......"
 puts "Ça va être un peu long......"
 
