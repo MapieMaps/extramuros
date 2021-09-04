@@ -1,12 +1,11 @@
 <div class="icon-text-left-black">
   <span class="material-icons">&#xe5cb;</span><%= link_to 'Revenir à la liste', coworkings_path %>
 </div>
-
 <h1><%= @coworking.name %></h1>
 
 <p><%= @coworking.address %></p>
 
-<h2 style="color: #4086CE;"><%= Time.now.strftime("%m/%d/%Y") %></h2>
+<h2 style="color: #4086CE;"><%= @date.strftime("%m/%d/%Y") %></h2>
 
 <div type="button" class="btn btn-primary" style="margin-top: 32px ;">
     <%= simple_form_for([@coworking, @booking]) do |f| %>
@@ -19,6 +18,9 @@
 <%= render 'shared/equipements' %>
 
 <!-- ajouter une class à l'objet > , :class => 'btn' -->
+
+<%= @coworking.photos.size %>
+
 
 
 <div class="col-12 col-lg-6">

@@ -21,8 +21,7 @@ require("channels")
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
-require("bootstrap")
-require("flatpickr")
+
 
 
 // External imports
@@ -30,13 +29,12 @@ import "bootstrap";
 
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { activate_datepicker } from '../plugins/flatpickr';
 
 document.addEventListener('turbolinks:load', () => {
-  $('[data-tooltip-display="true"]').tooltip(),
-  flatpickr("[class='flatpickr']", {}
+  activate_datepicker
 });
 
 // stylesheets
-require("../stylesheets/application.scss")
+// require("../stylesheets/application.scss")
 
