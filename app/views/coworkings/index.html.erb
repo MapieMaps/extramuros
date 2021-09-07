@@ -20,7 +20,11 @@
 
         <% @coworkings.each do |coworking| %>
           <div class="coworking-card">
-            <%= cl_image_tag(coworking.photos.first.key)%>
+            <% if coworking.photos.attached? %>
+              <%= cl_image_tag(coworking.photos.first.key)%>
+            <% else %>
+              <p>Je n'ai pas de photo - mettre une image par défaut</p>
+            <% end %>
             <div>
               <%= link_to "OK", coworking_path(coworking, date: @date) %>
               <h2><%= coworking.name %></h2>

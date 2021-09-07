@@ -11,86 +11,82 @@ printer = Equipement.find_by(name: "Imprimante")
 wifi = Equipement.find_by(name: "Internet Haut Débit")
 parking = Equipement.find_by(name: "Parking Gratuit")
 
-equipement_ids = []
+
 
 
 # ******************************************************************************
 # Coworking ————————————————————————————————————————————————————————————————————
 
 mix_tassin = Coworking.create!(
-  name: "MIX TASSIN 03",
+  name: "MIX TASSIN test",
   address: "4-6 Avenue Joannes Hubert 69160 Tassin-la-Demi-Lune",
-  # equipements: "24h/24h, Parking gratuit, Espace repas, Internet Haut Débit, Firewall, Accès PMR",
   opening_time: "00:00",
-  closing_time: "10:00",
+  closing_time: "00:00",
   contact_name: "Bénédicte Poncet "
 )
 
 # Photos ———————————————————————————————————————————————————————————————————————
 
-# mix_tassin_photos = [
-#   'https://res.cloudinary.com/mapiemap/image/upload/v1629215919/Extramuros/Coworkings/mix-tassin-01_qbksd9.jpg',
-#   'https://res.cloudinary.com/mapiemap/image/upload/v1629215919/Extramuros/Coworkings/mix-tassin-02_imuwji.jpg',
-#   'https://res.cloudinary.com/mapiemap/image/upload/v1629215919/Extramuros/Coworkings/mix-tassin-03_yqvuxm.jpg'
-# ]
-# mix_tassin_photo_number = 0
-# mix_tassin_photos.each do |photo|
-#   file = URI.open(photo)
-#   mix_tassin.photos.attach(io: file, filename: "mix-tassin-0#{mix_tassin_photo_number += 1}.jpg")
-# end
+mix_tassin_photos = [
+  'https://res.cloudinary.com/mapiemap/image/upload/v1629215919/Extramuros/Coworkings/mix-tassin-01_qbksd9.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1629215919/Extramuros/Coworkings/mix-tassin-02_imuwji.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1629215919/Extramuros/Coworkings/mix-tassin-03_yqvuxm.jpg'
+]
+mix_tassin_photo_number = 0
+mix_tassin_photos.each do |photo|
+  file = URI.open(photo)
+  mix_tassin.photos.attach(io: file, filename: "mix-tassin-0#{mix_tassin_photo_number += 1}.jpg")
+end
 
-# mix_tassin_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1629819999/Extramuros/Coworkings/mix-tassin-avatar_lymsu2.jpg')
-# mix_tassin.avatar.attach(io: mix_tassin_avatar, filename: 'mix-tassin-avatar.jpg')
+mix_tassin_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1629819999/Extramuros/Coworkings/mix-tassin-avatar_lymsu2.jpg')
+mix_tassin.avatar.attach(io: mix_tassin_avatar, filename: 'mix-tassin-avatar.jpg')
 
 # Equipements ———————————————————————————————————————————————————————————————————
 
-coworking = Coworking.find_by(name: "MIX TASSIN 03")
-p coworking.name
+coworking = Coworking.find_by(name: "MIX TASSIN test")
 
-
-# seat_equipement = CoworkingEquipement.create!(
-#   {
-#     coworking_id: coworking.id,
-#     equipement_id: seat.id,
-#   }
-# )
-
-equipement_ids.each do |equipement_id|
-  coworking_equipement =
-    CoworkingEquipement.new(
-      equipement_id: equipement_id,
-      coworking: @coworking
-    )
-  coworking_equipement.save
-end
-
-p seat_equipement
-p coworking.equipements
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: parking.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: lunch.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: wifi.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: firewall.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: access.id })
 
 puts "#{mix_tassin.name} a été créé"
 
-# ——————————————————————————————————————————————————————————————————————————————
+# ******************************************************************************
+# Coworking ——————————————————————————————————————————————————————————————————
 
-# booster_house = Coworking.create!(
-#   name: "Booster House",
-#   address: "3, chemin du Jubin 69570 Dardilly",
-#   equipements: "9h00 à 18h00, Parking gratuit, Espace repas, Imprimante, Accès PMR",
-#   contact_first_name: "Marion",
-#   contact_last_name: "Mathevet"
-# )
+booster_house = Coworking.create!(
+  name: "Booster House test",
+  address: "3, chemin du Jubin 69570 Dardilly",
+  opening_time: "09:00",
+  closing_time: "17:30",
+  contact_name: "Marion Mathevet "
+)
 
-# booster_house_photos = [
-#   'https://res.cloudinary.com/mapiemap/image/upload/v1629215919/Extramuros/Coworkings/booster-house-01_a09y0i.jpg',
-#   'https://res.cloudinary.com/mapiemap/image/upload/v1629215919/Extramuros/Coworkings/booster-house-02_h71mug.jpg',
-#   'https://res.cloudinary.com/mapiemap/image/upload/v1629215919/Extramuros/Coworkings/booster-house-03_azmkjs.jpg'
-# ]
-# booster_house_photo_number = 0
-# booster_house_photos.each do |photo|
-#   file = URI.open(photo)
-#   booster_house.photos.attach(io: file, filename: "mix-tassin-0#{booster_house_photo_number += 1}.jpg")
-# end
+# Photos ———————————————————————————————————————————————————————————————————————
 
-# booster_house_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1629819998/Extramuros/Coworkings/booster-house-avatar_xphwe2.jpg')
-# booster_house.avatar.attach(io: booster_house_avatar, filename: 'booster-house-avatar.jpg')
+booster_house_photos = [
+  'https://res.cloudinary.com/mapiemap/image/upload/v1629215919/Extramuros/Coworkings/booster-house-01_a09y0i.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1629215919/Extramuros/Coworkings/booster-house-02_h71mug.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1629215919/Extramuros/Coworkings/booster-house-03_azmkjs.jpg'
+]
+booster_house_photo_number = 0
+booster_house_photos.each do |photo|
+  file = URI.open(photo)
+  booster_house.photos.attach(io: file, filename: "mix-tassin-0#{booster_house_photo_number += 1}.jpg")
+end
 
-# puts "#{booster_house.name} a été créé"
+booster_house_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1629819998/Extramuros/Coworkings/booster-house-avatar_xphwe2.jpg')
+booster_house.avatar.attach(io: booster_house_avatar, filename: 'booster-house-avatar.jpg')
+
+
+coworking = Coworking.find_by(name: "Booster House test")
+
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: parking.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: lunch.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: wifi.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: firewall.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: access.id })
+
+puts "#{booster_house.name} a été créé"
