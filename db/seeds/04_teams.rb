@@ -1,6 +1,6 @@
 team_prod = Team.create!(
   name: "Team production",
-  description: "équipe 2",
+  description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
   manager: User.find_by(email: "ma.bernard@company.com")
 )
 
