@@ -1,11 +1,10 @@
 <ul class="chips">
   <% @coworking.equipements.each do |equipement|%>
     <li>
-      <%= equipement.name %>
       <span class="material-icons">&#xe5cb;</span>
-
-
+      <%= "#{equipement.name}" %>
     </li>
   <% end %>
 
 </ul>
+

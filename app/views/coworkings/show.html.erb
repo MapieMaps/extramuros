@@ -5,7 +5,7 @@
 
 <p><%= @coworking.address %></p>
 
-<h2 style="color: #4086CE;"><%= @date.strftime("%m/%d/%Y") %></h2>
+<h2 style="color: #4086CE;"><%= @date %></h2>
 
 <div type="button" class="btn btn-primary" style="margin-top: 32px ;">
     <%= simple_form_for([@coworking, @booking]) do |f| %>
@@ -16,12 +16,13 @@
 </div>
 
 <%= render 'shared/equipements' %>
+<% if @coworking.avatar.attached? %>
+  <%= cl_image_tag @coworking.avatar.key, class: 'avatar-large' %>
+<% else %>
+  <p>Je n'ai pas de photo - mettre une image par défaut</p>
+<% end %>
 
-<!-- ajouter une class à l'objet > , :class => 'btn' -->
-
-<%= @coworking.photos.size %>
-
-
+<%= @coworking.contact_name %>
 
 <div class="col-12 col-lg-6">
   <div class="row">
