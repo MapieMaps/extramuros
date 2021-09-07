@@ -11,9 +11,11 @@ puts "Nettoyage de la base de données......"
 puts "Ça va être un peu long......"
 
 User.destroy_all
+CoworkingEquipement.destroy_all
 Equipement.destroy_all
 Team.destroy_all
 Coworking.destroy_all
+
 
 puts "Patience......"
 
