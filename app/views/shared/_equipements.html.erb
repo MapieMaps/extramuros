@@ -1,10 +1,33 @@
-<ul class="chips">
+<% accessible = "&#xe914;" %>         <!-- "Accès PMR" -->
+<% assignment = "&#xe85d;" %>             <!-- "Doc. unique de secu" -->
+<% restaurant_menu = "&#xe561;" %>    <!-- "Espace repas" -->
+<% event_seat = "&#xe903;" %>             <!-- "Fauteuils ergonomiques" -->
+<% security = "&#xe32a;" %>               <!-- "Firewall" -->
+<% printer = "&#xe8ad;" %>                <!-- "Imprimante" -->
+<% wifi = "&#xe63e;" %>                   <!-- "Internet Haut Débit" -->
+<% directions_car = "&#xe531;" %>         <!-- "Parking Gratuit" -->
+
+<!-- equipements_icons = [ accessible, assignment, restaurant_menu, event_seat, security, printer, wifi, directions_car ] -->
+
+<ul>
   <% @coworking.equipements.each do |equipement|%>
-    <li>
-      <span class="material-icons">&#xe5cb;</span>
-      <%= "#{equipement.name}" %>
+
+    <li class="btn btn-outline-secondary disabled rounded-pill mr-2 mt-4">
+      <% equipement_name = equipement.name %>
+
+
+      <% if equipement_name == "Accès PMR" %><span class="material-icons align-top">&#xe914;</span><% end %>
+      <% if equipement_name == "Doc. unique de secu" %><span class="material-icons align-top">&#xe85d;</span><% end %>
+      <% if equipement_name == "Espace repas" %><span class="material-icons align-top">&#xe561;</span><% end %>
+      <% if equipement_name == "Fauteuils ergonomiques" %><span class="material-icons align-top">&#xe903;</span><% end %>
+      <% if equipement_name == "Firewall" %><span class="material-icons align-top">&#xe32a;</span><% end %>
+      <% if equipement_name == "Imprimante" %><span class="material-icons align-top">&#xe8ad;</span><% end %>
+      <% if equipement_name == "Internet Haut Débit" %><span class="material-icons align-top">&#xe63e;</span><% end %>
+      <% if equipement_name == "Parking Gratuit" %><span class="material-icons align-top">&#xe531;</span><% end %>
+      <%= "#{equipement_name}" %>
+
     </li>
+
   <% end %>
 
 </ul>
-
