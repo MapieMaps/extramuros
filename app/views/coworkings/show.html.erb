@@ -62,14 +62,11 @@
 
       <h2 style="color: #4086CE;"><%= @date.strftime("%A %m-%-d/%Y") %></h2>
 
-      <div type="button" class="btn btn-primary">
-        <%= link_to 'Bouton test', root_path, :class => "btn"%>
-      </div>
       <!-- bouton : améliorer le tyle -->
-      <div type="button" class="btn btn-primary">
+      <div type="button">
           <%= simple_form_for([@coworking, @booking]) do |f| %>
           <%= f.input :date, as: :hidden, input_html: { value: @date } %>
-          <%= f.submit "Réserver", class: "btn" %>
+          <%= f.submit "Réserver", class: "btn btn-primary btn-book" %>
           <% end %>
 
       </div>
