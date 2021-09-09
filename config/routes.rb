@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :coworkings, only: [ :index, :show, :new, :create ] do
     resources :bookings, only: [ :index, :new, :create ]
   end
-  resources :bookings, only: [ :destroy ]
+  resources :bookings, only: [ :destroy, :index ]
   resources :teams, only: [ :destroy ]
 end
