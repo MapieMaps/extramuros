@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
+    @bookings = current_user.bookings
   end
 
   def create
@@ -12,7 +13,7 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:notice] = 'le coworking a bien été reservé'
-      redirect_to coworking_path @coworking
+      redirect_to bookings_path 
     else
       @date = Date.today
       render 'coworkings/show'
