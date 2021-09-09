@@ -16,8 +16,11 @@
 </div>
 
 <%= render 'shared/equipements' %>
-
-<%= cl_image_tag @coworking.avatar.key, class: 'avatar-large' %>
+<% if @coworking.avatar.attached? %>
+  <%= cl_image_tag @coworking.avatar.key, class: 'avatar-large' %>
+<% else %>
+  <p>Je n'ai pas de photo - mettre une image par défaut</p>
+<% end %>
 
 <%= @coworking.contact_name %>
 
