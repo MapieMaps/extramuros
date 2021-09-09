@@ -1,15 +1,13 @@
 .coworking-card {
-  // display: flex;
+  display: flex;
   margin-top:64px;
-  // align-items: flex-start;
+  align-items: flex-start;
 
   a {
     color: $gray;
   }
 
-  small {
-    color: $blue;
-  }
+
 
   img {
     width: 240px;
