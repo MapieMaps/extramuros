@@ -12,22 +12,21 @@
 <ul>
   <% @coworking.equipements.each do |equipement|%>
 
-    <li class="btn btn-outline-secondary disabled rounded-pill mr-2 mt-4">
+    <li">
+      <div class="d-inline border border-secondary text-secondary rounded-pill mr-4 p-2">
       <% equipement_name = equipement.name %>
 
+        <% if equipement_name == "Accès PMR" %><span class="material-icons align-top">&#xe914;</span><% end %>
+        <% if equipement_name == "Doc. unique de secu" %><span class="material-icons align-top">&#xe85d;</span><% end %>
+        <% if equipement_name == "Espace repas" %><span class="material-icons align-top">&#xe561;</span><% end %>
+        <% if equipement_name == "Fauteuils ergonomiques" %><span class="material-icons align-top">&#xe903;</span><% end %>
+        <% if equipement_name == "Firewall" %><span class="material-icons align-top">&#xe32a;</span><% end %>
+        <% if equipement_name == "Imprimante" %><span class="material-icons align-top">&#xe8ad;</span><% end %>
+        <% if equipement_name == "Internet Haut Débit" %><span class="material-icons align-top">&#xe63e;</span><% end %>
+        <% if equipement_name == "Parking Gratuit" %><span class="material-icons align-top">&#xe531;</span><% end %>
+        <%= "#{equipement_name}" %>
 
-      <% if equipement_name == "Accès PMR" %><span class="material-icons align-top">&#xe914;</span><% end %>
-      <% if equipement_name == "Doc. unique de secu" %><span class="material-icons align-top">&#xe85d;</span><% end %>
-      <% if equipement_name == "Espace repas" %><span class="material-icons align-top">&#xe561;</span><% end %>
-      <% if equipement_name == "Fauteuils ergonomiques" %><span class="material-icons align-top">&#xe903;</span><% end %>
-      <% if equipement_name == "Firewall" %><span class="material-icons align-top">&#xe32a;</span><% end %>
-      <% if equipement_name == "Imprimante" %><span class="material-icons align-top">&#xe8ad;</span><% end %>
-      <% if equipement_name == "Internet Haut Débit" %><span class="material-icons align-top">&#xe63e;</span><% end %>
-      <% if equipement_name == "Parking Gratuit" %><span class="material-icons align-top">&#xe531;</span><% end %>
-      <%= "#{equipement_name}" %>
-
+      </div>
     </li>
-
   <% end %>
-
 </ul>
