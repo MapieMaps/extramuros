@@ -1,8 +1,20 @@
 <div class="container">
     <h1>Mes réservations</h1>
     <ul>
-        <% @bookings.each do |booking| %>
-            <li><%= booking.date  %>- <%= booking.coworking.name %> </li>
-        <% end %>
-    </ul>   
+      <% @bookings.each do |booking| %>
+        <li>Le <%= booking.date.strftime("%-d %b")%>. <%= booking.date.strftime("%Y") %>  à <%= booking.coworking.name %> </li>
+      <% end %>
+    </ul>
+</div>
+
+<div class="container">
+    <h2>Test affichage résa futures</h2>
+    <%= Date.today %>
+    <ul>
+      <% @bookings.each do |booking| %>
+
+          <li>Le <%= booking.date.strftime("%-d %b")%>. <%= booking.date.strftime("%Y") %>  à <%= booking.coworking.name %> </li>
+
+      <% end %>
+    </ul>
 </div>
