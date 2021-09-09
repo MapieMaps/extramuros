@@ -26,10 +26,11 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { initMapbox } from '../plugins/init_mapbox';
 
 // Internal imports, e.g:
 import { activate_datepicker } from '../plugins/flatpickr';
 
 document.addEventListener('turbolinks:load', () => {
-  // activate_datepicker
+  initMapbox();
 });

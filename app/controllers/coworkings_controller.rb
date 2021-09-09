@@ -7,6 +7,12 @@ class CoworkingsController < ApplicationController
       @date = Date.today
     end
     @coworkings = Coworking.all
+    @markers = @coworkings.geocoded.map do |coworking|
+      {
+        lat: coworking.latitude,
+        lng: coworking.longitude    
+      }
+    end
   end
 
   def show
