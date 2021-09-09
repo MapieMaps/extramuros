@@ -13,3 +13,16 @@
   }
 }
 
+.disabled {
+    color: #A9A9A9;
+    border-color: #A9A9A9;
+    background-color: white;
+}
+
+
+.btn.btn-outline-secondary[disabled]{
+  color: #A9A9A9;
+  border-color: #A9A9A9;
+  background-color: white;
+}
+

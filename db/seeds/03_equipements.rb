@@ -5,7 +5,8 @@ equipements = [
   "Doc. unique de secu",
   "Espace repas",
   "Fauteuils ergonomiques",
-  "Firewall", "Imprimante",
+  "Firewall",
+  "Imprimante",
   "Internet Haut Débit",
   "Parking Gratuit"
 ]
