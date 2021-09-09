@@ -9,10 +9,9 @@
 
 <div type="button" class="btn btn-primary" style="margin-top: 32px ;">
     <%= simple_form_for([@coworking, @booking]) do |f| %>
-    <%= f.input :date, as: :hidden, input_html: { value: @date } %>
-    <%= f.submit "réserver", class: "btn" %>
-    <% end %>
-        
+        <%= f.input :date, as: :hidden, input_html: { value: @date } %>
+        <%= f.submit "réserver", class: "btn" %>
+    <% end %>        
 </div>
 
 <%= render 'shared/equipements' %>
