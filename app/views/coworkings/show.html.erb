@@ -55,18 +55,21 @@
     </div>
 
     <!-- RIGHT SIDE -->
-    <div class="w-50" style="padding-left: 48px;">
+    <div class="w-50" style="margin-top:64px ;padding-left: 48px;">
 
       <h1><%= @coworking.name %></h1>
-
       <p><%= @coworking.address %></p>
 
-      <h2 style="color: #4086CE;"><%= @date %></h2>
+      <h2 style="color: #4086CE;"><%= @date.strftime("%A %m-%-d/%Y") %></h2>
 
+      <div type="button" class="btn btn-primary">
+        <%= link_to 'Bouton test', root_path, :class => "btn"%>
+      </div>
+      <!-- bouton : améliorer le tyle -->
       <div type="button" class="btn btn-primary">
           <%= simple_form_for([@coworking, @booking]) do |f| %>
           <%= f.input :date, as: :hidden, input_html: { value: @date } %>
-          <%= f.submit "réserver", class: "btn" %>
+          <%= f.submit "Réserver", class: "btn" %>
           <% end %>
 
       </div>
