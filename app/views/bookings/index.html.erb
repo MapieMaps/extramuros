@@ -9,11 +9,13 @@
 
 <div class="container">
     <h2>Test affichage résa futures</h2>
-    <%= Date.today %>
+
     <ul>
       <% @bookings.each do |booking| %>
-
+        <% today = Date.today %>
+        <% if booking.date > today %>
           <li>Le <%= booking.date.strftime("%-d %b")%>. <%= booking.date.strftime("%Y") %>  à <%= booking.coworking.name %> </li>
+        <% end %>
 
       <% end %>
     </ul>
