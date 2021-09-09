@@ -16,6 +16,7 @@
 </div>
 
 <%= render 'shared/equipements' %>
+
 <% if @coworking.avatar.attached? %>
   <%= cl_image_tag @coworking.avatar.key, class: 'avatar-large' %>
 <% else %>
