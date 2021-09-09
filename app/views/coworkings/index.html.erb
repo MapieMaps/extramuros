@@ -1,46 +1,42 @@
 <div class="container-fluid">
   <div class="row">
+    <div class="w-50" style="padding-left: 100px; padding-right: 48px;">
 
-    <div class="col-12 col-lg-6">
+      <form action="/coworkings" method="get" class="w-50 d-flex">
+        <input type="date" class="form-control" id="datepicker" data-provide="datepicker" name="booking_date">
+        <input type="submit" value="Valider la date" class="btn btn-primary ml-4">
+      </form>
 
-      <div class="row coworkings-list">
+      <% @coworkings.each do |coworking| %>
+        <div class="coworking-card">
+          <% if coworking.photos.attached? %>
+            <%= cl_image_tag(coworking.photos.first.key)%>
+          <% else %>
+            <p>Je n'ai pas de photo - mettre une image par défaut</p>
+          <% end %>
 
-        <div class="row coworking-fields">
-          <div class="col-12 col-lg-12">
-            <form action="/coworkings" method="get" class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <input type="date" class="form-control" id="datepicker" data-provide="datepicker" name="booking_date">
-                  <input type="submit" value="OK">
-                </div>
-              </div>
-            </form>
+          <div>
+            <h2><%= link_to coworking.name, coworking_path(coworking, date: @date) %></h2>
+            <p><%= coworking.address %></p>
+
+            <small class="text-secondary">
+              <%= coworking.opening_time.hour %>h / <%= coworking.closing_time.hour %>h
+              <% coworking.equipements.each do |equipement| %>
+                <% equipement = equipement.name %>
+                • <%= equipement %>
+              <% end %>
+            </small>
           </div>
         </div>
 
-        <% @coworkings.each do |coworking| %>
-          <div class="coworking-card">
-            <% if coworking.photos.attached? %>
-              <%= cl_image_tag(coworking.photos.first.key)%>
-            <% else %>
-              <p>Je n'ai pas de photo - mettre une image par défaut</p>
-            <% end %>
-            <div>
-              <%= link_to "OK", coworking_path(coworking, date: @date) %>
-              <h2><%= coworking.name %></h2>
-              <p><%= coworking.address %></p>
-              <small><%= coworking.equipements %></small>
-            </div>
-          </div>
-        <% end %>
-      </div>
+      <% end %>
+
     </div>
 
-    <div class="col-12 col-lg-6 vh-100" style="background-color: lightseagreen;">
+    <div class="w-50 vh-100" style="background-color: lightseagreen;">
+
       map
-    </div>
 
+    </div>
   </div>
 </div>
-
-

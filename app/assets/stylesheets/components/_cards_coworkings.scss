@@ -1,25 +1,18 @@
 .coworking-card {
   display: flex;
-  margin-bottom:64px;
+  margin-top:64px;
   align-items: flex-start;
 
-  small {
-    color: $blue;
+  a {
+    color: $gray;
   }
+
+
 
   img {
     width: 240px;
     height: 162px;
     margin-right: 32px;
   }
-}
-
-.coworkings-list {
-  padding: 0 100px 0 100px;
-}
-
-.coworking-fields {
-  width: 300px;
-  margin-bottom: 48px;
 }
 

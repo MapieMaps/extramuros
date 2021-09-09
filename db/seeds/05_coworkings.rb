@@ -18,11 +18,11 @@ parking = Equipement.find_by(name: "Parking Gratuit")
 # Coworking ————————————————————————————————————————————————————————————————————
 
 mix_tassin = Coworking.create!(
-  name: "MIX TASSIN test",
+  name: "MIX TASSIN",
   address: "4-6 Avenue Joannes Hubert 69160 Tassin-la-Demi-Lune",
-  opening_time: "00:00",
-  closing_time: "00:00",
-  contact_name: "Bénédicte Poncet "
+  opening_time: "08:00",
+  closing_time: "20:00",
+  contact_name: "Bénédicte Poncet"
 )
 
 # Photos ———————————————————————————————————————————————————————————————————————
@@ -43,7 +43,7 @@ mix_tassin.avatar.attach(io: mix_tassin_avatar, filename: 'mix-tassin-avatar.jpg
 
 # Equipements ———————————————————————————————————————————————————————————————————
 
-coworking = Coworking.find_by(name: "MIX TASSIN test")
+coworking = Coworking.find_by(name: "MIX TASSIN")
 
 CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: parking.id })
 CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: lunch.id })
@@ -57,11 +57,11 @@ puts "#{mix_tassin.name} a été créé"
 # Coworking ——————————————————————————————————————————————————————————————————
 
 booster_house = Coworking.create!(
-  name: "Booster House test",
+  name: "Booster House",
   address: "3, chemin du Jubin 69570 Dardilly",
   opening_time: "09:00",
   closing_time: "17:30",
-  contact_name: "Marion Mathevet "
+  contact_name: "Marion Mathevet"
 )
 
 # Photos ———————————————————————————————————————————————————————————————————————
@@ -81,7 +81,7 @@ booster_house_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/uploa
 booster_house.avatar.attach(io: booster_house_avatar, filename: 'booster-house-avatar.jpg')
 
 
-coworking = Coworking.find_by(name: "Booster House test")
+coworking = Coworking.find_by(name: "Booster House")
 
 CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: parking.id })
 CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: lunch.id })

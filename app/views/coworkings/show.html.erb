@@ -1,62 +1,83 @@
-<div class="container">
-    <div class="icon-text-left-black">
+<div class="container-fluid">
+  <div class="row">
+  <!-- LEFT SIDE -->
+    <div class="w-50" style="padding-left: 100px;">
+
+      <!-- Revenir à la page précédente -->
+      <div class="icon-text-left-black" style="margin-bottom: 32px;">
         <span class="material-icons">&#xe5cb;</span><%= link_to 'Revenir à la liste', coworkings_path %>
       </div>
-      <h1><%= @coworking.name %></h1>
-      
-      <p><%= @coworking.address %></p>
-      
-      <h2 style="color: #4086CE;"><%= @date %></h2>
-      
-      <div type="button" class="btn btn-primary" style="margin-top: 32px ;">
-        <%= simple_form_for([@coworking, @booking]) do |f| %>
-          <%= f.input :date, as: :hidden, input_html: { value: @date } %>
-          <%= f.submit "réserver", class: "btn" %>
-        <% end %>        
+
+      <!-- Carousel -->
+      <div style="margin-bottom: 32px;">
+        <% if @coworking.photos.size == 1 %>
+            <img class="d-block w-100" src="<%= cl_image_path @coworking.photos.first.key %>" alt="photo" >
+
+        <% elsif @coworking.photos.size > 1 %>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <% @coworking.photos.size.times do |i| %>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>" class="<%= "active" if i.zero? %>"></li>
+                    <% end %>
+                </ol>
+
+                <div class="carousel-inner">
+                    <% @coworking.photos.each_with_index do |photo, index| %>
+                        <div class="carousel-item <%= "active" if index.zero? %>">
+                            <img class="d-block w-100" src="<%= cl_image_path photo.key %>" alt="<%= index.ordinalize %> image">
+                        </div>
+                    <% end %>
+                </div>
+
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        <% end %>
       </div>
-      
-      <%= render 'shared/equipements' %>
-      <% if @coworking.avatar.attached? %>
-        <%= cl_image_tag @coworking.avatar.key, class: 'avatar-large' %>
-      <% else %>
-        <p>Je n'ai pas de photo - mettre une image par défaut</p>
-      <% end %>
-      
-      <%= @coworking.contact_name %>
-      
-      <div class="col-12 col-lg-6">
-        <div class="row">
-      
-          <% if @coworking.photos.size == 1 %>
-              <img class="d-block w-100" src="<%= cl_image_path @coworking.photos.first.key %>" alt="photo" >
-      
-          <% elsif @coworking.photos.size > 1 %>
-              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                  <ol class="carousel-indicators">
-                      <% @coworking.photos.size.times do |i| %>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>" class="<%= "active" if i.zero? %>"></li>
-                      <% end %>
-                  </ol>
-      
-                  <div class="carousel-inner">
-                      <% @coworking.photos.each_with_index do |photo, index| %>
-                          <div class="carousel-item <%= "active" if index.zero? %>">
-                              <img class="d-block w-100" src="<%= cl_image_path photo.key %>" alt="<%= index.ordinalize %> image">
-                          </div>
-                      <% end %>
-                  </div>
-      
-                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                  </a>
-      
-                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                  </a>
-              </div>
+
+      <!-- Avatar du gérant -->
+      <div class="d-flex align-items-center">
+        <% if @coworking.avatar.attached? %>
+          <%= cl_image_tag @coworking.avatar.key, class: 'avatar-medium' %>
+        <% else %>
+          <p>Je n'ai pas de photo - mettre une image par défaut</p>
+        <% end %>
+        <p class="mt-3 ml-3"><%= @coworking.contact_name %>, gestionnaire de l’espace <%= @coworking.name %></p>
+
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="w-50" style="margin-top:64px ;padding-left: 48px;">
+
+      <h1><%= @coworking.name %></h1>
+      <p><%= @coworking.address %></p>
+
+      <h2 style="color: #4086CE;"><%= @date.strftime("%A %m-%-d/%Y") %></h2>
+
+      <div type="button" class="btn btn-primary">
+        <%= link_to 'Bouton test', root_path, :class => "btn"%>
+      </div>
+      <!-- bouton : améliorer le tyle -->
+      <div type="button" class="btn btn-primary">
+          <%= simple_form_for([@coworking, @booking]) do |f| %>
+          <%= f.input :date, as: :hidden, input_html: { value: @date } %>
+          <%= f.submit "Réserver", class: "btn" %>
           <% end %>
-        </div>
-      </div>      
+
+      </div>
+
+      <%= render 'shared/equipements' %>
+
+
+    </div>
+  </div>
 </div>
+
