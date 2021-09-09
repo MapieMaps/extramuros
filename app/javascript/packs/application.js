@@ -43,6 +43,3 @@ document.addEventListener('turbolinks:load', () => {
     confirmButtonText: 'Cool'
   })
 });
-
-
-
