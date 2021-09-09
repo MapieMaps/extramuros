@@ -1,10 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Current_user.booking
   end
-
-
 
   def create
     @coworking = Coworking.find(params[:coworking_id])
@@ -12,17 +9,15 @@ class BookingsController < ApplicationController
     @booking.coworking = @coworking
     @booking.user = current_user
 
-    #@booking.team = current_user
-      if @booking.save!
-        flash[:notice] = 'le coworking a bien été reservé'
-         redirect_to coworking_path @coworking
-      else
-        @date = Date.today
-        render 'coworkings/show'
-      end
+
+    if @booking.save
+      flash[:notice] = 'le coworking a bien été reservé'
+      redirect_to coworking_path @coworking
+    else
+      @date = Date.today
+      render 'coworkings/show'
+    end
   end
-
-
 
   def destroy
   end
