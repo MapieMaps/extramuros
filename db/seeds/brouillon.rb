@@ -126,7 +126,7 @@ melchior_coworking = Coworking.create!(
   address: "7, rue de la Gare 69330 Meyzieu",
   opening_time: "09:30",
   closing_time: "17:30",
-  contact_name: "Sandrine Rabilloud"
+  contact_name: "Céline Passot et Isabelle Kratiroff"
 )
 
 # Photos ———————————————————————————————————————————————————————————————————————
@@ -158,3 +158,44 @@ CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: secu_do
 
 puts "#{melchior_coworking.name} a été créé"
 
+
+# ******************************************************************************
+# Coworking 08 —————————————————————————————————————————————————————————————————
+
+ocw = Coworking.create!(
+  name: "OCW",
+  address: "37 Rue Paul Bovier Lapierre 69530 Brignais",
+  opening_time: "08:30",
+  closing_time: "17:30",
+  contact_name: "Sophie Emmonet et Patrick Marjoux"
+)
+
+# Photos ———————————————————————————————————————————————————————————————————————
+
+ocw_photos = [
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289907/Extramuros/Coworkings/OCW-01_xnompx.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289907/Extramuros/Coworkings/OCW-02_sbyp2w.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289907/Extramuros/Coworkings/OCW-03_v4gln8.jpg'
+]
+ocw_photo_number = 0
+ocw_photos.each do |photo|
+  file = URI.open(photo)
+  ocw.photos.attach(io: file, filename: "OCW-0#{ocw_photo_number += 1}.jpg")
+end
+
+ocw_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1631289907/Extramuros/Coworkings/OCW-avatar_pgymoa.jpg')
+ocw.avatar.attach(io: ocw_avatar, filename: 'OCW-avatar.jpg')
+
+
+coworking = Coworking.find_by(name: "OCW")
+
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: parking.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: lunch.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: printer.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: wifi.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: firewall.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: access.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: seat.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: secu_doc.id })
+
+puts "#{ocw.name} a été créé"
