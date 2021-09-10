@@ -199,3 +199,44 @@ CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: seat.id
 CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: secu_doc.id })
 
 puts "#{ocw.name} a été créé"
+
+
+
+
+# ******************************************************************************
+# Coworking 09 —————————————————————————————————————————————————————————————————
+
+mix_francheville = Coworking.create!(
+  name: "MIX FRANCHEVILLE",
+  address: "3 Place du Bourg 69340 Francheville",
+  opening_time: "08:00",
+  closing_time: "20:00",
+  contact_name: "Bénédicte Poncet"
+)
+
+# Photos ———————————————————————————————————————————————————————————————————————
+
+mix_francheville_photos = [
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289906/Extramuros/Coworkings/mix-francheville-01_a8k0yc.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289907/Extramuros/Coworkings/mix-francheville-02_qa47hi.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289907/Extramuros/Coworkings/mix-francheville-03_liceks.jpg'
+]
+mix_francheville_photo_number = 0
+mix_francheville_photos.each do |photo|
+  file = URI.open(photo)
+  mix_francheville.photos.attach(io: file, filename: "mix-francheville-0#{mix_francheville_photo_number += 1}.jpg")
+end
+
+mix_francheville_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1631289907/Extramuros/Coworkings/mix-francheville-avatar_zm7nvj.jpg')
+mix_francheville.avatar.attach(io: mix_francheville_avatar, filename: 'mix-francheville-avatar.jpg')
+
+
+coworking = Coworking.find_by(name: "MIX FRANCHEVILLE")
+
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: parking.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: lunch.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: wifi.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: firewall.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: access.id })
+
+puts "#{mix_francheville.name} a été créé"

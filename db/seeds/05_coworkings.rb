@@ -120,7 +120,7 @@ work_and_wall_photos.each do |photo|
 end
 
 work_and_wall_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1631289908/Extramuros/Coworkings/work-and-wall-avatar_wqyr7q.png')
-work_and_wall.avatar.attach(io: work_and_wall_avatar, filename: 'work-and-wall-avatar.jpg')
+work_and_wall.avatar.attach(io: work_and_wall_avatar, filename: 'work-and-wall-avatar.png')
 
 
 coworking = Coworking.find_by(name: "Work & Wall")
