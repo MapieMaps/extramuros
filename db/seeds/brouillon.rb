@@ -240,3 +240,44 @@ CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: firewal
 CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: access.id })
 
 puts "#{mix_francheville.name} a été créé"
+
+
+
+# ******************************************************************************
+# Coworking 10 —————————————————————————————————————————————————————————————————
+
+w_and_co = Coworking.create!(
+  name: "W&Co",
+  address: "56 avenue Chanoine Cartellier 69230 Saint-Genis-Laval",
+  opening_time: "08:00",
+  closing_time: "18:00",
+  contact_name: "Carole Cochet"
+)
+
+# Photos ———————————————————————————————————————————————————————————————————————
+
+w_and_co_photos = [
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289908/Extramuros/Coworkings/w-and-co-01_jjtyhx.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289907/Extramuros/Coworkings/w-and-co-02_xumlr1.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289908/Extramuros/Coworkings/w-and-co-03_pneieg.jpg'
+]
+w_and_co_photo_number = 0
+w_and_co_photos.each do |photo|
+  file = URI.open(photo)
+  w_and_co.photos.attach(io: file, filename: "w-and-co-0#{w_and_co_photo_number += 1}.jpg")
+end
+
+w_and_co_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1631289908/Extramuros/Coworkings/w-and-co-avatar_sotpuz.jpg')
+w_and_co.avatar.attach(io: w_and_co_avatar, filename: 'w-and-co-avatar.jpg')
+
+
+coworking = Coworking.find_by(name: "W&Co")
+
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: parking.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: lunch.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: printer.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: wifi.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: firewall.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: seat.id })
+
+puts "#{w_and_co.name} a été créé"
