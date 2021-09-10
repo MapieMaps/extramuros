@@ -78,3 +78,41 @@ CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: access.
 
 puts "#{luz_in.name} a été créé"
 
+
+# ******************************************************************************
+# Coworking 06 —————————————————————————————————————————————————————————————————
+
+chlorofeel = Coworking.create!(
+  name: "ChloroFEEL",
+  address: "7, rue de la Gare 69330 Meyzieu",
+  opening_time: "09:30",
+  closing_time: "17:30",
+  contact_name: "Sandrine Rabilloud"
+)
+
+# Photos ———————————————————————————————————————————————————————————————————————
+
+chlorofeel_photos = [
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289905/Extramuros/Coworkings/chlorofeel-01_vu0ri8.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289905/Extramuros/Coworkings/chlorofeel-02_njqow3.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289906/Extramuros/Coworkings/chlorofeel-03_fafhcg.jpg'
+]
+chlorofeel_photo_number = 0
+chlorofeel_photos.each do |photo|
+  file = URI.open(photo)
+  chlorofeel.photos.attach(io: file, filename: "chlorofeel-0#{chlorofeel_photo_number += 1}.jpg")
+end
+
+chlorofeel_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1631289906/Extramuros/Coworkings/chlorofeel-avatar_fnjr8c.jpg')
+chlorofeel.avatar.attach(io: chlorofeel_avatar, filename: 'chlorofeel-avatar.jpg')
+
+
+coworking = Coworking.find_by(name: "ChloroFEEL")
+
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: parking.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: lunch.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: access.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: secu_doc.id })
+
+puts "#{chlorofeel.name} a été créé"
+
