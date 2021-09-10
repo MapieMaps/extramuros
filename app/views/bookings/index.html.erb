@@ -1,22 +1,67 @@
-<div class="container">
-    <h1>Mes réservations</h1>
-    <ul>
-      <% @bookings.each do |booking| %>
-        <li>Le <%= booking.date.strftime("%-d %b")%>. <%= booking.date.strftime("%Y") %>  à <%= booking.coworking.name %> </li>
-      <% end %>
-    </ul>
+<div>
+  <h2>Réservations à venir</h2>
+  <br>
+  <div>
+    <% @bookings.each do |booking| %>
+      <div class="d-flex flex-row" style="margin-bottom: 64px;">
+        <!-- div photo -->
+        <div>
+          <% if booking.coworking.photos.attached? %>
+            <%= cl_image_tag(booking.coworking.photos.first.key, width:390, height: 262, crop: :fill)%>
+          <% else %>
+            <p>Photo à venir</p>
+          <% end %>
+        </div>
+        <!-- div contenu -->
+        <div style="margin-left: 48px;">
+          <h2><%= booking.coworking.name %></h2>
+          <p class="text-secondary"><%= booking.coworking.address %></p>
+
+          <% today = Date.today %>
+          <% if booking.date >= today %>
+            <div class="d-flex" style="margin-top: 32px;">
+              <span class="material-icons mr-2">&#xe614;</span>
+              <p>Le <%= booking.date.strftime("%-d %b")%> . <%= booking.date.strftime("%Y") %></p>
+            </div>
+          <% end %>
+
+          <div type="button" class="btn btn-primary" style="margin-top: 16px ;">
+            <%= link_to 'Annuler', coworkings_path, :class => "btn"%>
+          </div>
+
+        </div>
+
+      </div>
+    <% end %>
+  </div>
 </div>
 
-<div class="container">
-    <h2>Test affichage résa futures</h2>
+<div style="height: 100px;"></div>
 
-    <ul>
-      <% @bookings.each do |booking| %>
-        <% today = Date.today %>
-        <% if booking.date > today %>
-          <li>Le <%= booking.date.strftime("%-d %b")%>. <%= booking.date.strftime("%Y") %>  à <%= booking.coworking.name %> </li>
-        <% end %>
-
+<div>
+  <h2>Réservations passées</h2>
+  <br>
+  <div>
+    <% @bookings.each do |booking| %>
+      <% today = Date.today %>
+      <% if booking.date < today %>
+        <div>Le <%= booking.date.strftime("%-d %b")%>. <%= booking.date.strftime("%Y") %>  à <%= booking.coworking.name %> </div>
       <% end %>
-    </ul>
+
+    <% end %>
+  </div>
+</div>
+
+<div>
+  <h2>Réservations classées</h2>
+  <br>
+  <div>
+    <% @bookings.each do |booking| %>
+      <% today = Date.today %>
+      <% if booking.date < today %>
+        <div>Le <%= booking.date.strftime("%-d %b")%>. <%= booking.date.strftime("%Y") %>  à <%= booking.coworking.name %> </div>
+      <% end %>
+
+    <% end %>
+  </div>
 </div>
