@@ -116,3 +116,45 @@ CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: secu_do
 
 puts "#{chlorofeel.name} a été créé"
 
+
+
+# ******************************************************************************
+# Coworking 07 —————————————————————————————————————————————————————————————————
+
+melchior_coworking = Coworking.create!(
+  name: "MELCHIOR COWORKING",
+  address: "7, rue de la Gare 69330 Meyzieu",
+  opening_time: "09:30",
+  closing_time: "17:30",
+  contact_name: "Sandrine Rabilloud"
+)
+
+# Photos ———————————————————————————————————————————————————————————————————————
+
+melchior_coworking_photos = [
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289906/Extramuros/Coworkings/melchior-coworking-01_vyowuh.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289906/Extramuros/Coworkings/melchior-coworking-02_bkcszr.jpg',
+  'https://res.cloudinary.com/mapiemap/image/upload/v1631289906/Extramuros/Coworkings/melchior-coworking-03_cbpu3n.jpg'
+]
+melchior_coworking_photo_number = 0
+melchior_coworking_photos.each do |photo|
+  file = URI.open(photo)
+  melchior_coworking.photos.attach(io: file, filename: "melchior-coworking-0#{melchior_coworking_photo_number += 1}.jpg")
+end
+
+melchior_coworking_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1631289906/Extramuros/Coworkings/melchior-coworking-avatar_fnjr8c.jpg')
+melchior_coworking.avatar.attach(io: melchior_coworking_avatar, filename: 'melchior-coworking-avatar.jpg')
+
+
+coworking = Coworking.find_by(name: "MELCHIOR COWORKING")
+
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: parking.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: lunch.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: printer.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: wifi.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: firewall.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: seat.id })
+CoworkingEquipement.create!({ coworking_id: coworking.id, equipement_id: secu_doc.id })
+
+puts "#{melchior_coworking.name} a été créé"
+
