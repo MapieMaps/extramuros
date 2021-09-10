@@ -1,8 +1,85 @@
-<div class="container">
-    <h1>Mes réservations</h1>
-    <ul>
-        <% @bookings.each do |booking| %>
-            <li><%= booking.date  %>- <%= booking.coworking.name %> </li>
-        <% end %>
-    </ul>   
+<div class="container-fluid d-flex justify-content-center" style="margin-top: 64px;">
+  <!-- UPCOMING BOOKINGS -->
+  <div>
+    <% @bookings.each do |booking| %>
+      <div class="d-flex flex-row" style="margin-bottom: 64px;">
+        <!-- div photo -->
+        <div>
+          <% if booking.coworking.photos.attached? %>
+            <%= cl_image_tag(booking.coworking.photos.first.key, width:340, height: 228, crop: :fill)%>
+          <% else %>
+            <p>Photo à venir</p>
+          <% end %>
+        </div>
+        <!-- div contenu -->
+        <div class="w-50" style="margin-left: 48px;">
+          <h2><%= booking.coworking.name %></h2>
+          <p class="text-secondary"><%= booking.coworking.address %></p>
+
+          <% today = Date.today %>
+          <% if booking.date >= today %>
+            <div class="d-flex" style="margin-top: 16px;">
+              <span class="material-icons mr-2">&#xe614;</span>
+              <p>Le <%= booking.date.strftime("%-d %b")%> . <%= booking.date.strftime("%Y") %></p>
+            </div>
+          <% end %>
+
+          <div type="button" class="btn btn-primary" style="margin-top: 16px ;">
+            <%= link_to 'Annuler', coworkings_path, :class => "btn"%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div>
+      <h1 style="margin-top: 128px;">Réservations passées</h1>
+      <% @bookings.each do |booking| %>
+        <div class="d-flex flex-row" style="margin-bottom: 64px; margin-top: 64px;">
+          <!-- div photo -->
+          <div>
+            <% if booking.coworking.photos.attached? %>
+              <%= cl_image_tag(booking.coworking.photos.first.key, width:340, height: 228, crop: :fill)%>
+            <% else %>
+              <p>Photo à venir</p>
+            <% end %>
+          </div>
+          <!-- div contenu -->
+          <div class="w-50" style="margin-left: 48px;">
+            <h2><%= booking.coworking.name %></h2>
+            <p class="text-secondary"><%= booking.coworking.address %></p>
+
+            <% today = Date.today %>
+            <% if booking.date >= today %>
+              <div class="d-flex" style="margin-top: 16px;">
+                <span class="material-icons mr-2">&#xe889;</span>
+                <p>Le <%= booking.date.strftime("%-d %b")%> . <%= booking.date.strftime("%Y") %></p>
+              </div>
+            <% end %>
+
+            <div type="button" class="btn btn-outline-primary" style="margin-top: 16px ;">
+              <%= link_to 'Réserver à nouveau', coworkings_path, :class => "btn"%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- PAST BOOKINGS -->
+
+
 </div>
+
+<div style="height: 200px;"></div>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -60,7 +60,7 @@
       <h1><%= @coworking.name %></h1>
       <p><%= @coworking.address %></p>
 
-      <h2 style="color: #4086CE;"><%= @date.strftime("%A %m-%-d/%Y") %></h2>
+      <h2 style="color: #4086CE; margin-top: 48px ;">Le <%= @date.strftime("%-d %b")%>. <%= @date.strftime("%Y") %></h2>
 
       <!-- bouton : améliorer le tyle -->
       <div type="button">
@@ -77,4 +77,6 @@
     </div>
   </div>
 </div>
+
+<div style="height: 200px;"></div>
 
