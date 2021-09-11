@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row" style="margin-top: 64px ;">
-    <div class="col 12 col-sm-4 column-profile">
+    <div class="col 12 col-sm-4 column-profile" style="margin-top: 16px;">
       <div class="card-user-profile">
         <%= image_tag @user.avatar, class: "avatar-large" %>
         <div class="card-user-profile-content">
@@ -14,7 +14,7 @@
           </div>
 
           <% if @current_user %>
-            <div style="margin-top: 32px ; padding-top: 32px;"></div>
+            <div style="margin-top: 32px ; padding-top: 32px; border-top:1px solid #E5E5E5;"></div>
               <!-- n'apparait que si current_user -->
               <div class="icon-text-right">
                 éditer mon profil<span class="material-icons">&#xe3c9;</span>
