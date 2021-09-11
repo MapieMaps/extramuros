@@ -16,6 +16,7 @@ CoworkingEquipement.destroy_all
 Equipement.destroy_all
 Team.destroy_all
 Coworking.destroy_all
+Booking.destroy_all
 
 
 puts "Patience......"
