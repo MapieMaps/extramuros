@@ -19,7 +19,7 @@ parking = Equipement.find_by(name: "Parking Gratuit")
 
 mix_tassin = Coworking.create!(
   name: "MIX TASSIN",
-  address: "4-6 Avenue Joannes Hubert 69160 Tassin-la-Demi-Lune",
+  address: "4-6 Avenue Joannes Hubert, 69160 Tassin-la-Demi-Lune",
   opening_time: "08:00",
   closing_time: "20:00",
   contact_name: "Bénédicte Poncet"
@@ -60,7 +60,7 @@ puts "#{mix_tassin.name} a été créé"
 
 booster_house = Coworking.create!(
   name: "Booster House",
-  address: "3, chemin du Jubin 69570 Dardilly",
+  address: "3 chemin du Jubin, 69570 Dardilly",
   opening_time: "09:00",
   closing_time: "17:30",
   contact_name: "Marion Mathevet"
@@ -100,7 +100,7 @@ puts "#{booster_house.name} a été créé"
 
 work_and_wall = Coworking.create!(
   name: "Work & Wall",
-  address: "18 porte du Grand Lyon 01700 Neyron",
+  address: "18 porte du Grand Lyon, 01700 Neyron",
   opening_time: "08:30",
   closing_time: "18:00",
   contact_name: "Manon Perrod"
@@ -141,7 +141,7 @@ puts "#{work_and_wall.name} a été créé"
 
 walter_technolac = Coworking.create!(
   name: "Walter Technolac",
-  address: "12 rue du Lac de Garde 73370 Le Bourget du Lac",
+  address: "12 rue du Lac de Garde, 73370 Le Bourget du Lac",
   opening_time: "08:00",
   closing_time: "18:30",
   contact_name: "Yanis Mouhcine"
@@ -183,7 +183,7 @@ puts "#{walter_technolac.name} a été créé"
 
 luz_in = Coworking.create!(
   name: "LUZ'IN",
-  address: "PA de Rhodes - 3 rue des Mûriers 38110 La Tour du Pin",
+  address: "PA de Rhodes 3 rue des Mûriers, 38110 La Tour du Pin",
   opening_time: "08:30",
   closing_time: "18:00",
   contact_name: "Julia Sorlin"
@@ -222,7 +222,7 @@ puts "#{luz_in.name} a été créé"
 
 chlorofeel = Coworking.create!(
   name: "ChloroFEEL",
-  address: "7, rue de la Gare 69330 Meyzieu",
+  address: "7 rue de la Gare, 69330 Meyzieu",
   opening_time: "09:30",
   closing_time: "17:30",
   contact_name: "Sandrine Rabilloud"
@@ -261,7 +261,7 @@ puts "#{chlorofeel.name} a été créé"
 
 melchior_coworking = Coworking.create!(
   name: "MELCHIOR COWORKING",
-  address: "7, rue de la Gare 69330 Meyzieu",
+  address: "7 rue de la Gare, 69330 Meyzieu",
   opening_time: "09:30",
   closing_time: "17:30",
   contact_name: "Céline Passot et Isabelle Kratiroff"
@@ -280,8 +280,8 @@ melchior_coworking_photos.each do |photo|
   melchior_coworking.photos.attach(io: file, filename: "melchior-coworking-0#{melchior_coworking_photo_number += 1}.jpg")
 end
 
-melchior_coworking_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1631289906/Extramuros/Coworkings/melchior-coworking-avatar_fnjr8c.jpg')
-melchior_coworking.avatar.attach(io: melchior_coworking_avatar, filename: 'melchior-coworking-avatar.jpg')
+melchior_coworking_avatar = URI.open('https://res.cloudinary.com/mapiemap/image/upload/v1631289907/Extramuros/Coworkings/mix-francheville-avatar_zm7nvj.jpg')
+melchior_coworking.avatar.attach(io: melchior_coworking_avatar, filename: 'mix-francheville-avatar.jpg')
 
 
 coworking = Coworking.find_by(name: "MELCHIOR COWORKING")
@@ -302,7 +302,7 @@ puts "#{melchior_coworking.name} a été créé"
 
 ocw = Coworking.create!(
   name: "OCW",
-  address: "37 Rue Paul Bovier Lapierre 69530 Brignais",
+  address: "37 Rue Paul Bovier Lapierre, 69530 Brignais",
   opening_time: "08:30",
   closing_time: "17:30",
   contact_name: "Sophie Emmonet et Patrick Marjoux"
@@ -346,7 +346,7 @@ puts "#{ocw.name} a été créé"
 
 mix_francheville = Coworking.create!(
   name: "MIX FRANCHEVILLE",
-  address: "3 Place du Bourg 69340 Francheville",
+  address: "3 Place du Bourg, 69340 Francheville",
   opening_time: "08:00",
   closing_time: "20:00",
   contact_name: "Bénédicte Poncet"
@@ -386,7 +386,7 @@ puts "#{mix_francheville.name} a été créé"
 
 w_and_co = Coworking.create!(
   name: "W&Co",
-  address: "56 avenue Chanoine Cartellier 69230 Saint-Genis-Laval",
+  address: "56 avenue Chanoine Cartellier, 69230 Saint-Genis-Laval",
   opening_time: "08:00",
   closing_time: "18:00",
   contact_name: "Carole Cochet"
