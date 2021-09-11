@@ -60,18 +60,40 @@
       <h1><%= @coworking.name %></h1>
       <p><%= @coworking.address %></p>
 
-      <h2 style="color: #4086CE; margin-top: 48px ;">Le <%= @date.strftime("%-d %b")%>. <%= @date.strftime("%Y") %></h2>
-
-      <!-- bouton : améliorer le tyle -->
-      <div type="button">
+      <div type="button" style="margin-top: 48px">
           <%= simple_form_for([@coworking, @booking]) do |f| %>
           <%= f.input :date, as: :hidden, input_html: { value: @date } %>
-          <%= f.submit "Réserver", class: "btn btn-primary btn-book" %>
+          <%= f.submit "Réserver le #{@date.strftime("%-d %b")}. #{@date.strftime("%Y")}", class: "btn btn-primary btn-book" %>
           <% end %>
 
       </div>
 
-      <%= render 'shared/equipements' %>
+      <div style="margin-top: 48px">
+        <ul class = "list-unstyled">
+          <li class="d-inline border border-secondary text-secondary rounded-pill mr-4 p-2 text-nowrap">
+            <%= "#{@coworking.opening_time.hour}" %>h / <%= @coworking.closing_time.hour %>h <span class="material-icons align-top mb-4">&#xe8b5;</span>
+          </li>
+
+          <% @coworking.equipements.each do |equipement|%>
+            <li class="d-inline border border-secondary text-secondary rounded-pill mr-4 p-2 text-nowrap">
+
+              <% equipement_name = equipement.name %>
+
+              <% if equipement_name == "Accès PMR" %><span class="material-icons align-top mb-4">&#xe914;</span><% end %>
+              <% if equipement_name == "Doc. unique de secu" %><span class="material-icons align-top mb-4">&#xe85d;</span><% end %>
+              <% if equipement_name == "Espace repas" %><span class="material-icons align-top mb-4">&#xe561;</span><% end %>
+              <% if equipement_name == "Fauteuils ergonomiques" %><span class="material-icons align-top mb-4">&#xe903;</span><% end %>
+              <% if equipement_name == "Firewall" %><span class="material-icons align-top mb-4">&#xe32a;</span><% end %>
+              <% if equipement_name == "Imprimante" %><span class="material-icons align-top mb-4">&#xe8ad;</span><% end %>
+              <% if equipement_name == "Internet Haut Débit" %><span class="material-icons align-top mb-4">&#xe63e;</span><% end %>
+              <% if equipement_name == "Parking Gratuit" %><span class="material-icons align-top mb-4">&#xe531;</span><% end %>
+              <%= "#{equipement_name}" %>
+
+            </li>
+
+          <% end %>
+        </ul>
+      </div>
 
 
     </div>
