@@ -23,7 +23,7 @@ def random_users
     }
     random_avatar = open(attribute["picture"]["large"])
 
-    user = User.create(attributes)
+    user = User.create!(attributes)
 
     user.avatar.attach(io: random_avatar, filename: 'avatar.jpg')
     puts "#{user.first_name} a été créé"
