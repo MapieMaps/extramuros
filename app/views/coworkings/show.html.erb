@@ -59,8 +59,9 @@
 
       <h1><%= @coworking.name %></h1>
       <p><%= @coworking.address %></p>
+      <h2 class="d-inline-flex align-items-center mt-1" style="color: #4086CE;"><span class="material-icons pr-2" style="font-size: 40px;">&#xe8b5;</span><%= " Ouvert de #{@coworking.opening_time.hour}h à " %><%= @coworking.closing_time.hour %>h </h2>
 
-      <div type="button" style="margin-top: 48px">
+      <div type="button" style="margin-top: 32px">
           <%= simple_form_for([@coworking, @booking]) do |f| %>
           <%= f.input :date, as: :hidden, input_html: { value: @date } %>
           <%= f.submit "Réserver le #{@date.strftime("%-d %b")}. #{@date.strftime("%Y")}", class: "btn btn-primary btn-book" %>
@@ -70,9 +71,6 @@
 
       <div style="margin-top: 48px">
         <ul class = "list-unstyled">
-          <li class="d-inline border border-secondary text-secondary rounded-pill mr-4 p-2 text-nowrap">
-            <%= "#{@coworking.opening_time.hour}" %>h / <%= @coworking.closing_time.hour %>h <span class="material-icons align-top mb-4">&#xe8b5;</span>
-          </li>
 
           <% @coworking.equipements.each do |equipement|%>
             <li class="d-inline border border-secondary text-secondary rounded-pill mr-4 p-2 text-nowrap">
