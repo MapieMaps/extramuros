@@ -23,7 +23,7 @@
           </div>
 
           <div type="button" class="btn btn-primary" style="margin-top: 16px ;">
-            <%= link_to 'Annuler', coworkings_path, :class => "btn"%>
+            <%= link_to 'Annuler', booking_path(booking), method: :delete, data: { confirm: "Vous êtes sure ?" },:class => "btn"%>
           </div>
         </div>
       </div>
