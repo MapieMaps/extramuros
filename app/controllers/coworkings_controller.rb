@@ -18,6 +18,13 @@ class CoworkingsController < ApplicationController
   def show
     @coworking = Coworking.find(params[:id])
     @booking = Booking.new
+    @coworkings = Coworking.all
+    @markers = @coworkings.geocoded.map do |coworking|
+      {
+        lat: coworking.latitude,
+        lng: coworking.longitude    
+      }
+    end
 
     # @date = Date.parse(params[:date])
     if params[:date]
